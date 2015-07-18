@@ -2,7 +2,7 @@
 var teamspeak = require('node-teamspeak');
 var config = require('./config.js');
 
-var port = process.env.port || 1337;
+var port = config.port || 1337;
 
 var status = {
     clients: 0,
