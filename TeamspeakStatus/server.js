@@ -8,6 +8,7 @@ var status = {
     clients: 0,
     max_clients: 0,
     uptime: 0,
+    channel_name: "",
     channels: []
 };
 
@@ -40,6 +41,16 @@ tsclient.send('login', {
         }
         updateStatus();
         setInterval(updateStatus, 30000);
+        
+        tsclient.send('serverinfo', function (err, response)
+        {
+            if (err)
+            {
+                console.log(err);
+                return;
+            }
+            status.channel_name = response.virtualserver_name
+        });
     });
 });
 
