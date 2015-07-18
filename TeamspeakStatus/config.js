@@ -1,6 +1,6 @@
 ﻿var config = {
-    address: "3v.fi",
-    username: "3ventic",
+    address: "",
+    username: "",
     password: ""
 };
 
