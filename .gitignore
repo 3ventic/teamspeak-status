@@ -1,0 +1,5 @@
+TeamspeakStatus/config.js
+TeamspeakStatus/node_modules/*
+TeamspeakStatus/obj/*
+TeamspeakStatus/.*
+*.suo

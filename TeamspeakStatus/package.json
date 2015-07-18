@@ -1,0 +1,15 @@
+{
+    "name": "TeamspeakStatus",
+    "version": "0.0.0",
+    "description": "TeamspeakStatus",
+    "main": "server.js",
+    "license":  "BSD-3-Clause",
+    "author": {
+        "name": "Werner",
+        "email": "3ventic@gmail.com",
+        "url": "http://3v.fi/"
+    },
+    "dependencies": { 
+        "node-teamspeak":  ">=1.0.10"
+    }
+}
