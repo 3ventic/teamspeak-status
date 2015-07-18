@@ -32,7 +32,7 @@ tsclient.send('login', {
         console.log(err);
         return;
     }
-    tsclient.send('use', { sid: 1 }, function (err, response)
+    tsclient.send('use', { sid: config.virtualserverID }, function (err, response)
     {
         if (err)
         {
@@ -49,7 +49,9 @@ tsclient.send('login', {
                 console.log(err);
                 return;
             }
-            status.channel_name = response.virtualserver_name
+            status.channel_name = response.virtualserver_name;
+            status.clients = response.virtualserver_clientsonline;
+            status.max_clients = response.virtualserver_maxclients;
         });
     });
 });
@@ -63,8 +65,8 @@ function updateStatus()
             console.log(err);
             return;
         }
-        status.clients = response.virtualservers_total_clients_online;
-        status.max_clients = response.virtualservers_total_maxclients;
+        //status.clients = response.virtualservers_total_clients_online;
+        //status.max_clients = response.virtualservers_total_maxclients;
         status.uptime = response.instance_uptime;
     });
     tsclient.send('channellist', function (err, response)
