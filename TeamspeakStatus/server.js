@@ -41,23 +41,23 @@ tsclient.send('login', {
         }
         updateStatus();
         setInterval(updateStatus, 30000);
-        
-        tsclient.send('serverinfo', function (err, response)
-        {
-            if (err)
-            {
-                console.log(err);
-                return;
-            }
-            status.channel_name = response.virtualserver_name;
-            status.clients = response.virtualserver_clientsonline;
-            status.max_clients = response.virtualserver_maxclients;
-        });
     });
 });
 
 function updateStatus()
 {
+    tsclient.send('serverinfo', function (err, response)
+    {
+        if (err)
+        {
+            console.log(err);
+            return;
+        }
+        status.channel_name = response.virtualserver_name;
+        status.clients = response.virtualserver_clientsonline;
+        status.max_clients = response.virtualserver_maxclients;
+    });
+
     tsclient.send('hostinfo', function (err, response)
     {
         if (err)
@@ -65,10 +65,9 @@ function updateStatus()
             console.log(err);
             return;
         }
-        //status.clients = response.virtualservers_total_clients_online;
-        //status.max_clients = response.virtualservers_total_maxclients;
         status.uptime = response.instance_uptime;
     });
+
     tsclient.send('channellist', function (err, response)
     {
         if (err)
