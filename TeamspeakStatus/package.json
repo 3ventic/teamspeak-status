@@ -1,9 +1,9 @@
 {
     "name": "TeamspeakStatus",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "TeamspeakStatus",
     "main": "server.js",
-    "license":  "BSD-3-Clause",
+    "license":  "MIT",
     "author": {
         "name": "Werner",
         "email": "3ventic@gmail.com",
